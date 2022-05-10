@@ -77,7 +77,23 @@ module.exports = {
                 ],
             },
         },
-        `gatsby-plugin-remove-serviceworker`,
+        {
+            resolve: `local-offline-plugin`,
+            options: {
+                precachePages: ['/*', '/**/**/index.html'],
+                workboxConfig: {
+                    globPatterns: [
+                        'offline-plugin-app-shell-fallback/index.html',
+                        'flexsearch_index.json',
+                        'public/icons/*',
+                        'favicon*.png',
+                        '**/*.webp',
+                        '*.js',
+                        '**/*.png'
+                    ],
+                },
+            },
+        },
         {
             resolve: 'local-search-plugin',
             options: {
