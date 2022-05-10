@@ -3,7 +3,7 @@ import * as styles from './Footer.module.css';
 import clsx from 'clsx';
 import { useStaticQuery, graphql } from 'gatsby';
 
-export default function Footer({ isIphone, isBrowser, isProgressbarActive }) {
+export default function Footer({ isIphone, isBrowser }) {
     const data = useStaticQuery(graphql`
         query {
             gitCommit(latest: { eq: true }) {
@@ -27,8 +27,7 @@ export default function Footer({ isIphone, isBrowser, isProgressbarActive }) {
             className={clsx(
                 styles.footerContainer,
                 { [styles.ios]: isIphone },
-                { [styles.browser]: isBrowser },
-                { [styles.progressbar]: isProgressbarActive }
+                { [styles.browser]: isBrowser }
             )}
         >
             <div className={styles.versionInfo}>
